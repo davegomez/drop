@@ -1,0 +1,31 @@
+{
+    "name": "drop",
+    "version": "0.1.0",
+    "description": "Dropdown Keyboard Navigation",
+    "source": "src/drop.ts",
+    "main": "dist/drop.js",
+    "exports": "dist/drop.modern.js",
+    "module": "dist/drop.module.js",
+    "unpkg": "dist/drop.umd.js",
+    "scripts": {
+        "build": "microbundle",
+        "dev": "microbundle watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davegomez/drop"
+    },
+    "keywords": [
+        "accessibility",
+        "dropdown",
+        "keyboard",
+        "menu",
+        "navigation"
+    ],
+    "author": "David Gomez <dg.dave@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "microbundle": "^0.13.0"
+    }
+}
