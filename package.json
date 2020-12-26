@@ -1,37 +1,61 @@
 {
-    "name": "drop",
-    "version": "0.1.0",
-    "description": "Dropdown Keyboard Navigation",
-    "source": "src/drop.ts",
-    "main": "dist/drop.js",
-    "exports": "dist/drop.modern.js",
-    "module": "dist/drop.module.js",
-    "unpkg": "dist/drop.umd.js",
-    "scripts": {
-        "build": "microbundle",
-        "dev": "microbundle watch",
-        "tdd": "npm t --watch",
-        "test": "jest"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/davegomez/drop"
-    },
-    "keywords": [
-        "accessibility",
-        "dropdown",
-        "keyboard",
-        "menu",
-        "navigation"
-    ],
-    "author": "David Gomez <dg.dave@gmail.com>",
-    "license": "MIT",
-    "devDependencies": {
-        "@babel/core": "^7.12.10",
-        "@babel/preset-env": "^7.12.11",
-        "@babel/preset-typescript": "^7.12.7",
-        "babel-jest": "^26.6.3",
-        "jest": "^26.6.3",
-        "microbundle": "^0.13.0"
+  "name": "@silky/drop",
+  "version": "0.1.0",
+  "description": "Dropdown Keyboard Navigation",
+  "source": "src/drop.ts",
+  "main": "dist/drop.js",
+  "exports": "dist/drop.modern.js",
+  "module": "dist/drop.module.js",
+  "unpkg": "dist/drop.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "tdd": "npm t --watch",
+    "test": "cross-env BABEL_ENV=test jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davegomez/drop"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "overrides": [
+      {
+        "files": "package.json",
+        "options": {
+          "useTabs": false,
+          "parser": "json-stringify"
+        }
+      }
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost"
+  },
+  "greenkeeper": {
+    "lockfiles": {
+      "outOfRangeUpdatesOnly": true
     }
+  },
+  "keywords": [
+    "accessibility",
+    "dropdown",
+    "keyboard",
+    "menu",
+    "navigation"
+  ],
+  "author": "David Gomez <dg.dave@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "babel-jest": "^26.6.3",
+    "cross-env": "^7.0.3",
+    "jest": "^26.6.3",
+    "microbundle": "^0.13.0"
+  }
 }
