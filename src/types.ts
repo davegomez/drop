@@ -1,1 +1,1 @@
-export type Selector = string;
+export type Selector = string | Element;
