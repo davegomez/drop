@@ -1,62 +1,68 @@
 {
-  "name": "@silky/drop",
-  "version": "0.1.0",
-  "description": "Dropdown Keyboard Navigation",
-  "source": "src/drop.ts",
-  "main": "dist/drop.js",
-  "exports": "dist/drop.modern.js",
-  "module": "dist/drop.module.js",
-  "unpkg": "dist/drop.umd.js",
-  "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
-    "tdd": "cross-env BABEL_ENV=test jest --watch",
-    "test": "cross-env BABEL_ENV=test jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/davegomez/drop"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "all",
-    "overrides": [
-      {
-        "files": "package.json",
-        "options": {
-          "useTabs": false,
-          "parser": "json-stringify"
+    "name": "@silky/drop",
+    "version": "0.1.0",
+    "description": "Dropdown Keyboard Navigation",
+    "source": "src/drop.ts",
+    "main": "dist/drop.js",
+    "exports": "dist/drop.modern.js",
+    "module": "dist/drop.module.js",
+    "unpkg": "dist/drop.umd.js",
+    "scripts": {
+        "build": "microbundle",
+        "dev": "microbundle watch",
+        "lint": "eslint -f unix \"{src,__tests__}/**/*.{ts,js}\" --quiet --fix",
+        "tdd": "cross-env BABEL_ENV=test jest --watch",
+        "test": "npm run lint && cross-env BABEL_ENV=test jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davegomez/drop"
+    },
+    "jest": {
+        "testEnvironment": "jsdom",
+        "testURL": "http://localhost"
+    },
+    "greenkeeper": {
+        "lockfiles": {
+            "outOfRangeUpdatesOnly": true
         }
-      }
-    ]
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "testURL": "http://localhost"
-  },
-  "greenkeeper": {
-    "lockfiles": {
-      "outOfRangeUpdatesOnly": true
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx}": [
+            "eslint --fix"
+        ]
+    },
+    "keywords": [
+        "accessibility",
+        "dropdown",
+        "keyboard",
+        "menu",
+        "navigation"
+    ],
+    "author": "David Gomez <dg.dave@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-typescript": "^7.12.7",
+        "@testing-library/jest-dom": "^5.11.6",
+        "@typescript-eslint/eslint-plugin": "^4.11.0",
+        "@typescript-eslint/parser": "^4.11.0",
+        "babel-jest": "^26.6.3",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.16.0",
+        "eslint-config-prettier": "^7.1.0",
+        "eslint-plugin-jest": "^24.1.3",
+        "eslint-plugin-prettier": "^3.3.0",
+        "eslint-plugin-tsdoc": "^0.2.10",
+        "husky": "^4.3.6",
+        "jest": "^26.6.3",
+        "lint-staged": "^10.5.3",
+        "microbundle": "^0.13.0"
     }
-  },
-  "keywords": [
-    "accessibility",
-    "dropdown",
-    "keyboard",
-    "menu",
-    "navigation"
-  ],
-  "author": "David Gomez <dg.dave@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-typescript": "^7.12.7",
-    "@testing-library/jest-dom": "^5.11.6",
-    "babel-jest": "^26.6.3",
-    "cross-env": "^7.0.3",
-    "jest": "^26.6.3",
-    "microbundle": "^0.13.0"
-  }
 }
