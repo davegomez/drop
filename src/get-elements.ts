@@ -2,9 +2,19 @@ import { isId, isClassName, isElement } from './guards';
 import type { Selector } from './types';
 
 /**
+ * Verifies if the value is a valid CSS selector to query the element/s in the
+ * document and returns it, or returns the same node element if one if provided.
+ * @internal
  *
- * @param value
- * @param isMulti
+ * @remarks
+ *
+ * If value is a non-id or class name selector this function throws. It tries to
+ * prevent querying unintended node elements.
+ *
+ * @param value - Selector to query the element in the DOM or node element.
+ * @param isMulti - Queries multiple elements using a class name selector.
+ *
+ * @returns The DOM element or list of elements.
  */
 const getElements = (
   value: Selector,
