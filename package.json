@@ -45,7 +45,7 @@
         "navigation"
     ],
     "author": "David Gomez <dg.dave@gmail.com>",
-    "license": "MIT",
+    "license": "MPL-2.0",
     "devDependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
