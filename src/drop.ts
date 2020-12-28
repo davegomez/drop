@@ -7,20 +7,21 @@
 
 import getElements from './get-elements';
 
-import type { Selector } from './types';
+import type { Dropdown, Options } from './types';
 
 const defaultOptions = {
+  selector: '.drop',
   multi: false,
 };
 
-const drop = (selector: Selector, userOptions: any) => {
+const drop = (userOptions: Options): Dropdown => {
   const options = { ...defaultOptions, ...userOptions };
-  const elements = getElements(selector, options.multi);
+  const elements = getElements(options.selector, options.multi);
+  let instance: Dropdown;
 
-  return {
-    elements,
-    selector,
-  };
+  instance.elements = elements;
+
+  return instance;
 };
 
 export default drop;

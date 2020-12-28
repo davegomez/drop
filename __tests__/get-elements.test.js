@@ -5,8 +5,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import getElements from '../src/get-elements';
 import '@testing-library/jest-dom';
+import getElements from '../src/get-elements';
 
 test('returns an element when passing an id', () => {
   // Set the document body
