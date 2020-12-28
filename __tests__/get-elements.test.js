@@ -88,7 +88,7 @@ test('returns same element when passing an HTML element', () => {
   expect(getElements(element, true)).toEqual(element);
 });
 
-test('throws when no first parameter is not valid', () => {
+test('throws when the first parameter is not valid', () => {
   // Set the document body
   document.body.innerHTML = `
     <div>

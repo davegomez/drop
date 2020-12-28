@@ -5,11 +5,19 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-export const isId = (value: unknown): value is string =>
-  typeof value === 'string' && value.charAt(0) === '#';
+import type { NodeElement } from './types';
 
-export const isClassName = (value: unknown): value is string =>
-  typeof value === 'string' && value.charAt(0) === '.';
+export const isNodePresent = (value?: NodeElement): NodeElement => {
+  if (value === null) {
+    throw new Error('The dropdown node must be present in the DOM');
+  }
+
+  return value;
+};
+
+export const isValidCSSSelector = (value: unknown): value is string =>
+  typeof value === 'string' &&
+  (value.charAt(0) === '#' || value.charAt(0) === '.');
 
 export const isElement = (value: unknown): value is Element =>
   value instanceof Element;

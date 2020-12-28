@@ -5,43 +5,38 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { isId, isClassName, isElement } from './guards';
-import type { Selector } from './types';
+import { isElement, isNodePresent, isValidCSSSelector } from './guards';
+import type { NodeElement, Selector } from './types';
 
 /**
- * Verifies if the value is a valid CSS selector to query the element/s in the
- * document and returns it, or returns the same node element if one if provided.
+ * Verifies if the argument is a valid CSS selector to query the element/s from
+ * the document and return it, or returns the same element if one if provided.
  * @internal
  *
  * @remarks
  *
- * If value is a non-id or class name selector this function throws. It tries to
- * prevent querying unintended node elements.
+ * If selector is a non-id or class name selector this function throws. It tries
+ * to prevent querying unintended node elements.
  *
- * @param value - Selector to query the element in the DOM or node element.
+ * @param selector - Selector to query the element in the DOM or node element.
  * @param isMulti - Queries multiple elements using a class name selector.
  *
  * @returns The DOM element or list of elements.
  */
-const getElements = (
-  value: Selector,
-  isMulti = false
-): Element | NodeListOf<Element> => {
-  if (isId(value) && document.getElementById(value.substr(1)) !== null) {
-    return document.getElementById(value.substr(1));
+const getElements = (selector: Selector, isMulti = false): NodeElement => {
+  if (isElement(selector)) {
+    return selector;
   }
 
-  if (isClassName(value) && document.querySelector(value) !== null) {
+  if (isValidCSSSelector(selector)) {
     return isMulti
-      ? document.querySelectorAll(value)
-      : document.querySelector(value);
+      ? isNodePresent(document.querySelectorAll(selector))
+      : isNodePresent(document.querySelector(selector));
   }
 
-  if (isElement(value)) {
-    return value;
-  }
-
-  throw new Error('The value must be an id, class name, or HTML element');
+  throw new TypeError(
+    'The selector must be an id, class name, or HTML element'
+  );
 };
 
 export default getElements;
