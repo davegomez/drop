@@ -6,3 +6,12 @@
  */
 
 export type Selector = string | Element;
+
+export type Options = {
+  selector: Selector;
+  multi: boolean;
+};
+
+export type Dropdown = {
+  elements: Element | NodeListOf<Element>;
+};
