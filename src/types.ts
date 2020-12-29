@@ -10,6 +10,8 @@ export type Selector = string | Element;
 
 export type NodeElement = Element | NodeListOf<Element>;
 
+export type ActionElement = HTMLAnchorElement | HTMLButtonElement;
+
 export type Options = {
   selector: Selector;
   multi: boolean;
