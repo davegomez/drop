@@ -89,6 +89,17 @@ test('returns same element when passing an HTML element', () => {
   expect(getElements(element, true)).toEqual(element);
 });
 
+test('throws when the node is not present in the DOM', () => {
+  // Set the document body
+  document.body.innerHTML = `
+    <div>
+      <div id="foo" />
+    </div>
+  `;
+
+  expect(() => getElements('.foo')).toThrow();
+});
+
 test('throws when the first parameter is not valid', () => {
   // Set the document body
   document.body.innerHTML = `

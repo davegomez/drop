@@ -9,7 +9,7 @@
 import type { ActionElement } from './types';
 
 const attributeMap = {
-  A: { data: 'anchor', name: 'tabindex', value: 0 },
+  A: { data: 'anchor', name: 'tabindex', value: '0' },
   BUTTON: { data: 'button', name: 'type', value: 'button' },
 };
 
