@@ -5,6 +5,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { DATA_DROP_ACTION } from './constants';
 
 import type { ActionElement } from './types';
 
@@ -20,9 +21,10 @@ const attributeMap = {
  *
  * @param element - Element to transform into a dropdown action.
  */
-const create = (element: ActionElement): void => {
+export const create = (element: ActionElement): void => {
   const { data, name, value } = attributeMap[element.nodeName];
   const attributeValue = element.getAttribute(name);
+  element.setAttribute(DATA_DROP_ACTION, '');
   element.setAttribute(name, value);
   element.setAttribute(
     `data-drop-${data}`,
@@ -37,7 +39,7 @@ const create = (element: ActionElement): void => {
  *
  * @param action - Dropdown action to restore to its original state.
  */
-const destroy = (action: ActionElement): void => {
+export const destroy = (action: ActionElement): void => {
   const { data, name } = attributeMap[action.nodeName];
   const attributeValue = action.getAttribute(`data-drop-${data}`);
 
@@ -48,6 +50,5 @@ const destroy = (action: ActionElement): void => {
   }
 
   action.removeAttribute(`data-drop-${data}`);
+  action.removeAttribute(DATA_DROP_ACTION);
 };
-
-export { create, destroy };

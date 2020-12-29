@@ -14,16 +14,19 @@ test('create and destroy anchor actions without a tabindex', () => {
 
   expect(element.getAttribute('tabindex')).toBe(null);
   expect(element.dataset.dropAnchor).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 
   create(element);
 
   expect(element).toHaveAttribute('tabindex', '0');
   expect(element.dataset.dropAnchor).toEqual('');
+  expect(element.dataset.dropAction).toEqual('');
 
   destroy(element);
 
   expect(element.getAttribute('tabindex')).toBe(null);
   expect(element.dataset.dropAnchor).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 });
 
 test('create and destroy anchor actions with a tabindex', () => {
@@ -32,16 +35,19 @@ test('create and destroy anchor actions with a tabindex', () => {
 
   expect(element).toHaveAttribute('tabindex', '1');
   expect(element.dataset.dropAnchor).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 
   create(element);
 
   expect(element).toHaveAttribute('tabindex', '0');
   expect(element.dataset.dropAnchor).toEqual('1');
+  expect(element.dataset.dropAction).toEqual('');
 
   destroy(element);
 
   expect(element).toHaveAttribute('tabindex', '1');
   expect(element.dataset.dropAnchor).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 });
 
 test('create and destroy button actions without a type', () => {
@@ -49,16 +55,19 @@ test('create and destroy button actions without a type', () => {
 
   expect(element.getAttribute('type')).toBe(null);
   expect(element.dataset.dropButton).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 
   create(element);
 
   expect(element).toHaveAttribute('type', 'button');
   expect(element.dataset.dropButton).toEqual('');
+  expect(element.dataset.dropAction).toEqual('');
 
   destroy(element);
 
   expect(element.getAttribute('type')).toBe(null);
   expect(element.dataset.dropButton).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 });
 
 test('create and destroy button actions with a type', () => {
@@ -67,14 +76,17 @@ test('create and destroy button actions with a type', () => {
 
   expect(element).toHaveAttribute('type', 'submit');
   expect(element.dataset.dropButton).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 
   create(element);
 
   expect(element).toHaveAttribute('type', 'button');
   expect(element.dataset.dropButton).toEqual('submit');
+  expect(element.dataset.dropAction).toEqual('');
 
   destroy(element);
 
   expect(element).toHaveAttribute('type', 'submit');
   expect(element.dataset.dropButton).toBe(undefined);
+  expect(element.dataset.dropAction).toBe(undefined);
 });
