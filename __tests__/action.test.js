@@ -12,7 +12,7 @@ import { create, destroy } from '../src/action';
 test('create and destroy anchor actions without a tabindex', () => {
   const element = document.createElement('a');
 
-  expect(element.getAttribute('tabindex')).toBe(null);
+  expect(element.hasAttribute('tabindex')).toBe(false);
   expect(element.dataset.dropAnchor).toBe(undefined);
   expect(element.dataset.dropAction).toBe(undefined);
 
@@ -24,7 +24,7 @@ test('create and destroy anchor actions without a tabindex', () => {
 
   destroy(element);
 
-  expect(element.getAttribute('tabindex')).toBe(null);
+  expect(element.hasAttribute('tabindex')).toBe(false);
   expect(element.dataset.dropAnchor).toBe(undefined);
   expect(element.dataset.dropAction).toBe(undefined);
 });
@@ -53,7 +53,7 @@ test('create and destroy anchor actions with a tabindex', () => {
 test('create and destroy button actions without a type', () => {
   const element = document.createElement('button');
 
-  expect(element.getAttribute('type')).toBe(null);
+  expect(element.hasAttribute('type')).toBe(false);
   expect(element.dataset.dropButton).toBe(undefined);
   expect(element.dataset.dropAction).toBe(undefined);
 
@@ -65,7 +65,7 @@ test('create and destroy button actions without a type', () => {
 
   destroy(element);
 
-  expect(element.getAttribute('type')).toBe(null);
+  expect(element.hasAttribute('type')).toBe(false);
   expect(element.dataset.dropButton).toBe(undefined);
   expect(element.dataset.dropAction).toBe(undefined);
 });
