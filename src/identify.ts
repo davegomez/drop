@@ -6,6 +6,8 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+import { DATA_DROP_ID } from './constants';
+
 /**
  * Uses an id to identify the Dropdown element used to open and close the menu.
  * If the element already has an id, it returns the same id; if it doesn't,
@@ -28,7 +30,7 @@ const identify = (element: Element, max = 99999) => {
     `drop-${Math.floor(Math.random() * Math.floor(max))}`;
 
   if (!element.getAttribute('id')) {
-    element.setAttribute('data-drop-id', '');
+    element.setAttribute(DATA_DROP_ID, '');
     element.setAttribute('id', id);
   }
 

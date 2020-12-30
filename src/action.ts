@@ -5,13 +5,17 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { DATA_DROP_ACTION } from './constants';
+import {
+  DATA_DROP_ACTION,
+  DATA_DROP_ANCHOR,
+  DATA_DROP_BUTTON,
+} from './constants';
 
 import type { ActionElement } from './types';
 
 const attributeMap = {
-  A: { data: 'anchor', name: 'tabindex', value: '0' },
-  BUTTON: { data: 'button', name: 'type', value: 'button' },
+  A: { data: DATA_DROP_ANCHOR, name: 'tabindex', value: '0' },
+  BUTTON: { data: DATA_DROP_BUTTON, name: 'type', value: 'button' },
 };
 
 /**
@@ -26,10 +30,7 @@ export const create = (element: ActionElement): void => {
   const attributeValue = element.getAttribute(name);
   element.setAttribute(DATA_DROP_ACTION, '');
   element.setAttribute(name, value);
-  element.setAttribute(
-    `data-drop-${data}`,
-    attributeValue === null ? '' : attributeValue
-  );
+  element.setAttribute(data, attributeValue === null ? '' : attributeValue);
 };
 
 /**
@@ -41,7 +42,7 @@ export const create = (element: ActionElement): void => {
  */
 export const destroy = (action: ActionElement): void => {
   const { data, name } = attributeMap[action.nodeName];
-  const attributeValue = action.getAttribute(`data-drop-${data}`);
+  const attributeValue = action.getAttribute(data);
 
   if (attributeValue !== null && attributeValue !== '') {
     action.setAttribute(name, attributeValue);
@@ -49,6 +50,6 @@ export const destroy = (action: ActionElement): void => {
     action.removeAttribute(name);
   }
 
-  action.removeAttribute(`data-drop-${data}`);
+  action.removeAttribute(data);
   action.removeAttribute(DATA_DROP_ACTION);
 };
