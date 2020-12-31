@@ -19,7 +19,64 @@
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- Your dropdown markup -->
+    <div class="wrapper">
+      <div class="box">
+        <!-- Your dropdown markup starts -->
+        <div class="drop dropdown">
+          <button class="dropdown-button">Dropdown</button>
+          <div class="dropdown-menu">
+            <button class="dropdown-action">Action One</button>
+            <button class="dropdown-action" disabled>Action Two</button>
+            <button class="dropdown-action">Action Three</button>
+            <button class="dropdown-action">Action Four</button>
+          </div>
+        </div>
+        <!-- Your dropdown markup ends -->
+      </div>
+      <div class="box">
+        <div class="drop dropdown">
+          <button class="dropdown-button">Dropdown</button>
+          <div class="dropdown-menu">
+            <a class="dropdown-action" href="https://www.example.com"
+              >Action One</a
+            >
+            <a class="dropdown-action" href="https://www.example.com"
+              >Action Two</a
+            >
+            <a class="dropdown-action">Action Three</a>
+            <a class="dropdown-action" href="https://www.example.com"
+              >Action Four</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="drop dropdown">
+          <button class="dropdown-button">Dropdown</button>
+          <div class="dropdown-menu">
+            <button class="dropdown-action">Action One</button>
+            <button class="dropdown-action">Action Two</button>
+            <button class="dropdown-action">Action Three</button>
+            <button class="dropdown-action">Action Four</button>
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="drop dropdown">
+          <button class="dropdown-button">Dropdown</button>
+          <div class="dropdown-menu">
+            <button class="dropdown-action">Action One</button>
+            <a class="dropdown-action" href="https://www.example.com"
+              >Action Two</a
+            >
+            <button class="dropdown-action">Action Three</button>
+            <a class="dropdown-action" href="https://www.example.com"
+              >Action Four</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Load Drop's UMD file for static websites -->
     <script src="../../dist/drop.umd.js"></script>
