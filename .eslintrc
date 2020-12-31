@@ -25,6 +25,7 @@
         "plugin:prettier/recommended"
     ],
     "rules": {
+        "no-undef": "off",
         "tsdoc/syntax": "warn"
     }
 }
