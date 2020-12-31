@@ -6,9 +6,13 @@
  * obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-export type Selector = string | Element;
+export type Selector = string | Element | HTMLElement;
 
-export type NodeElement = Element | NodeListOf<Element>;
+export type NodeElement =
+  | Element
+  | HTMLElement
+  | NodeListOf<Element>
+  | NodeListOf<HTMLElement>;
 
 export type ActionElement = HTMLAnchorElement | HTMLButtonElement;
 
@@ -17,6 +21,6 @@ export type Options = {
   multi: boolean;
 };
 
-export type Dropdown = {
+export type Drop = {
   elements: NodeElement;
 };
