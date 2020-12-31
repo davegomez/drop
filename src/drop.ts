@@ -7,12 +7,15 @@
  */
 
 import getElements from './get-elements';
+import { identity } from './utils';
 
 import type { Drop, Options } from './types';
 
-const defaultOptions = {
+const defaultOptions: Options = {
   selector: '.drop',
   multi: false,
+  onOpen: identity,
+  onClose: identity,
 };
 
 const drop = (userOptions: Options): Drop => {

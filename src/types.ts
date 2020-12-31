@@ -17,8 +17,10 @@ export type NodeElement =
 export type ActionElement = HTMLAnchorElement | HTMLButtonElement;
 
 export type Options = {
-  selector: Selector;
-  multi: boolean;
+  selector?: Selector;
+  multi?: boolean;
+  onOpen?: CallableFunction;
+  onClose?: CallableFunction;
 };
 
 export type Drop = {

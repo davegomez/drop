@@ -8,4 +8,4 @@
 
 'use strict';
 
-var dropdown = drop();
+var dropdown = drop({ multi: true });
