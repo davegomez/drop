@@ -8,7 +8,7 @@
 
 import type { NodeElement } from './types';
 
-export const isNodePresent = (value?: NodeElement): NodeElement => {
+export const isNodePresent = (value?: Element | NodeListOf<Element>) => {
   if (value === null) {
     throw new Error('The dropdown node must be present in the DOM');
   }

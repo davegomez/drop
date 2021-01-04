@@ -11,7 +11,8 @@ import type { NodeElement, Selector } from './types';
 
 /**
  * Verifies if the argument is a valid CSS selector to query the element/s from
- * the document and return it, or returns the same element if one if provided.
+ * the document and return it, or returns the same element if one if provided as
+ * an Array structure.
  * @internal
  *
  * @remarks
@@ -24,15 +25,22 @@ import type { NodeElement, Selector } from './types';
  *
  * @returns The DOM element or list of elements.
  */
-const getElements = (selector: Selector, isMulti = false): NodeElement => {
+const getElements = (
+  selector: Selector,
+  isMulti = false
+): Array<Element | NodeListOf<Element>> => {
   if (isElement(selector)) {
-    return selector;
+    return [selector];
   }
 
   if (isValidCSSSelector(selector)) {
     return isMulti
-      ? isNodePresent(document.querySelectorAll(selector))
-      : isNodePresent(document.querySelector(selector));
+      ? Array.from(
+          isNodePresent(
+            document.querySelectorAll(selector)
+          ) as NodeListOf<Element>
+        )
+      : [isNodePresent(document.querySelector(selector))];
   }
 
   throw new TypeError(

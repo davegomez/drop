@@ -20,9 +20,10 @@ test('returns an element when passing an id', () => {
 
   const elements = getElements('#foo');
 
-  expect(elements.nodeType).toBe(1);
-  expect(elements.length).toBe(undefined);
-  expect(elements).toHaveAttribute('id', id);
+  expect(Array.isArray(elements)).toBe(true);
+  expect(elements[0].nodeType).toEqual(1);
+  expect(elements.length).toBe(1);
+  expect(elements[0]).toHaveAttribute('id', id);
 });
 
 test('returns an element when passing a class name', () => {
@@ -36,9 +37,10 @@ test('returns an element when passing a class name', () => {
 
   const elements = getElements('.foo');
 
-  expect(elements.nodeType).toBe(1);
-  expect(elements.length).toBe(undefined);
-  expect(elements).toHaveClass(className);
+  expect(Array.isArray(elements)).toBe(true);
+  expect(elements[0].nodeType).toEqual(1);
+  expect(elements.length).toBe(1);
+  expect(elements[0]).toHaveClass(className);
 });
 
 test('returns single element with class name and no multi option', () => {
@@ -53,9 +55,10 @@ test('returns single element with class name and no multi option', () => {
 
   const elements = getElements('.foo');
 
-  expect(elements.nodeType).toBe(1);
-  expect(elements.length).toBe(undefined);
-  expect(elements).toHaveClass(className);
+  expect(Array.isArray(elements)).toBe(true);
+  expect(elements[0].nodeType).toEqual(1);
+  expect(elements.length).toBe(1);
+  expect(elements[0]).toHaveClass(className);
 });
 
 test('returns multiple elements with class name and multi option', () => {
@@ -70,6 +73,7 @@ test('returns multiple elements with class name and multi option', () => {
 
   const elements = getElements('.foo', true);
 
+  expect(Array.isArray(elements)).toBe(true);
   expect(elements.nodeType).toBe(undefined);
   expect(elements.length).toBe(2);
   elements.forEach((element) => expect(element).toHaveClass(className));
@@ -85,8 +89,9 @@ test('returns same element when passing an HTML element', () => {
 
   const element = document.getElementById('foo');
 
-  expect(getElements(element)).toEqual(element);
-  expect(getElements(element, true)).toEqual(element);
+  expect(Array.isArray(getElements(element))).toBe(true);
+  expect(getElements(element)[0]).toEqual(element);
+  expect(getElements(element, true)[0]).toEqual(element);
 });
 
 test('throws when the node is not present in the DOM', () => {
