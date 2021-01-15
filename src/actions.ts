@@ -19,11 +19,11 @@ const attributeMap = {
 };
 
 /**
- * Initialize an action element in the dropdown menu using the attribute map to
+ * Initialize the actions in the dropdown menu using the attribute map to
  * differentiate the element and apply the proper attributes and vales.
  * @internal
  *
- * @param element - Element to transform into a dropdown action.
+ * @param container - Dropdown container.
  */
 export const create = (container: HTMLElement): void =>
   container
@@ -37,11 +37,11 @@ export const create = (container: HTMLElement): void =>
     });
 
 /**
- * Restores an action by removing the custom attributes and values and restoring
- * the original ones.
+ * Destroy the actions by removing the custom attributes and values and
+ * restoring the original ones.
  * @internal
  *
- * @param action - Dropdown action to restore to its original state.
+ * @param container - Dropdown container.
  */
 export const destroy = (container: HTMLElement): void =>
   container
