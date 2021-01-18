@@ -7,3 +7,15 @@
  */
 
 export const identity = (x) => x;
+
+export const restoreAttribute = (
+  element: HTMLElement,
+  attribute: string,
+  value: string | null
+): void => {
+  if (value === null || value === '') {
+    element.removeAttribute(attribute);
+  } else {
+    element.setAttribute(attribute, value);
+  }
+};
